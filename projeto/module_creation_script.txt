@@ -1,11 +1,11 @@
 # criando serviços 
-        app ng g service services/users/Users # Usuários 
-        app ng g service services/users/UserLists # listas de um usuário
-        app ng g service services/list/ListItens # Itens de uma lista
-        app ng g service services/list/ListProducts # Produtos de uma lista (vinculados ao itens da lista)
-        app ng g service services/list/ListEstablishments # Estabelecimentos da lista
-        app ng g service services/establishment/EstablishmentProducts # Produtos de um estabelecimento
-        app ng g service services/establishment/ProductEstablishment # Estabelecimento que vendeu o produto
+app ionic generate service api/users/Users # Usuários 
+app ionic generate service api/users/UserLists # listas de um usuário
+app ionic generate service api/list/ListItens # Itens de uma lista
+app ionic generate service api/list/ListProducts # Produtos de uma lista (vinculados ao itens da lista)
+app ionic generate service api/list/ListEstablishments # Estabelecimentos da lista
+app ionic generate service api/establishment/EstablishmentProducts # Produtos de um estabelecimento
+app ionic generate service api/establishment/ProductEstablishment # Estabelecimento que vendeu o produto
 
 
 #componentes compartilhados
