@@ -1,0 +1,30 @@
+# criando serviços 
+        app ng g service services/users/Users # Usuários 
+        app ng g service services/users/UserLists # listas de um usuário
+        app ng g service services/list/ListItens # Itens de uma lista
+        app ng g service services/list/ListProducts # Produtos de uma lista (vinculados ao itens da lista)
+        app ng g service services/list/ListEstablishments # Estabelecimentos da lista
+        app ng g service services/establishment/EstablishmentProducts # Produtos de um estabelecimento
+        app ng g service services/establishment/ProductEstablishment # Estabelecimento que vendeu o produto
+
+
+#componentes compartilhados
+app ionic generate page shared/components/Alert
+app ionic generate page shared/components/NavBar
+app ionic generate page shared/components/Content
+app ionic generate page shared/components/Footer
+app ionic generate page shared/components/FormLogin
+app ionic generate page shared/components/ListUsers
+
+#model
+        app ng g interface models/User
+        app ng g interface models/Product
+        app ng g interface models/Establishment
+        app ng g interface models/List
+        app ng g interface models/ListIten
+
+
+# views
+app ionic generate page view/Login
+app ionic generate page view/Home
+app ionic generate page view/DetalheProduto
