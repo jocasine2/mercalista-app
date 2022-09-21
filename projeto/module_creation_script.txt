@@ -1,0 +1,50 @@
+#integração fontawesome
+    app npm i @fortawesome/angular-fontawesome
+    app npm i @fortawesome/fontawesome-svg-core
+    app npm i @fortawesome/free-solid-svg-icons
+    app npm i @fortawesome/free-regular-svg-icons
+    app npm i @fortawesome/free-brands-svg-icons
+
+    #em src/app/app.module.ts
+    import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+    import { fas } from '@fortawesome/free-solid-svg-icons'
+    import { far } from '@fortawesome/free-regular-svg-icons'
+    import { fab } from '@fortawesome/free-brands-svg-icons'
+
+    # adicionar o construtor na classe AppModule
+    constructor(library: FaIconLibrary) { 
+		library.addIconPacks(fas, fab, far);
+	}
+
+    #adicionar FontAwesomeModule ao imports
+
+# criando serviços 
+app ionic generate service api/users/Users # Usuários 
+app ionic generate service api/users/UserLists # listas de um usuário
+app ionic generate service api/list/ListItens # Itens de uma lista
+app ionic generate service api/list/ListProducts # Produtos de uma lista (vinculados ao itens da lista)
+app ionic generate service api/list/ListEstablishments # Estabelecimentos da lista
+app ionic generate service api/establishment/EstablishmentProducts # Produtos de um estabelecimento
+app ionic generate service api/establishment/ProductEstablishment # Estabelecimento que vendeu o produto
+
+
+#componentes compartilhados
+app ionic generate page shared/components/Alert
+app ionic generate page shared/components/NavBar
+app ionic generate page shared/components/Content
+app ionic generate page shared/components/Footer
+app ionic generate page shared/components/FormLogin
+app ionic generate page shared/components/ListUsers
+
+#model
+        app ng g interface models/User
+        app ng g interface models/Product
+        app ng g interface models/Establishment
+        app ng g interface models/List
+        app ng g interface models/ListIten
+
+
+# views
+app ionic generate page view/Login
+app ionic generate page view/Home
+app ionic generate page view/DetalheProduto
