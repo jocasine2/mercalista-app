@@ -8,12 +8,24 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: 'login',
     loadChildren: () => import('./view/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'home',
+    loadChildren: () => import('./view/home/home.module').then( m => m.HomePageModule)
+  },
+  {
+    path: 'lista-dispensa',
+    loadChildren: () => import('./view/lista-dispensa/lista-dispensa.module').then( m => m.ListaDispensaPageModule)
+  },
+  {
+    path: 'produtos',
+    loadChildren: () => import('./view/produtos/produtos.module').then( m => m.ProdutosPageModule)
+  },
+  {
+    path: 'estabelecimentos',
+    loadChildren: () => import('./view/estabelecimentos/estabelecimentos.module').then( m => m.EstabelecimentosPageModule)
   }
 ];
 

@@ -1,3 +1,16 @@
-<p>
-  nav-bar works!
-</p>
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+        <ion-list id="inbox-list">
+          <ion-list-header>Menu</ion-list-header>
+          <ion-note>joaquim@mercalista.com.br</ion-note>
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appMenuPages; let i = index">
+            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+              <fa-icon [icon]="p.icon" class="mr-4 cinza" ></fa-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+      </ion-content>
+    </ion-menu>
