@@ -12,11 +12,12 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 /*Adicionado NavBarComponent */
 import { NavBarComponent } from './shared/components/nav-bar/nav-bar.component';
 
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   /*Adicionado NavBarComponent */
   declarations: [AppComponent, NavBarComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FontAwesomeModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, FontAwesomeModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

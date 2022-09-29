@@ -26,6 +26,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@ionic/angular": "^6.1.9",
+    "@swimlane/ngx-datatable": "^20.0.0",
     "bootstrap": "^4.6.0",
     "ionicons": "^6.0.3",
     "jquery": "^3.5.1",
