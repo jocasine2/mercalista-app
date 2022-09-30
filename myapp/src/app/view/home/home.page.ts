@@ -1,31 +1,10 @@
-import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { ViewEncapsulation } from '@angular/core';
-export interface Data {
-  movies: string;
-}
+import { Component, ViewChild } from '@angular/core';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./home.page.scss']
 })
 export class HomePage {
-  public data: Data;
-  public columns: any;
-  public rows: any;
-
-  constructor(private http: HttpClient) {
-    this.columns = [
-      { name: 'Name' },
-      { name: 'Company' },
-      { name: 'Genre' }
-    ];
-
-    this.http.get<Data>('../../../assets/movies.json')
-      .subscribe((res) => {
-        console.log(res)
-        this.rows = res.movies;
-      });
-  }
+  constructor() {}
 }

@@ -6,6 +6,8 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { HomePage } from './home.page';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable'; /* datatables */
 
+import { DataTableComponent } from '../../shared/components/data-table/data-table.component'
+
 @NgModule({
   imports: [
     CommonModule,
@@ -13,8 +15,10 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable'; /* datatables */
     IonicModule,
     HomePageRoutingModule,
     NgxDatatableModule /* datatables */
+
   ],
-  declarations: [HomePage]
+
+  declarations: [HomePage, DataTableComponent]
   , schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomePageModule {}

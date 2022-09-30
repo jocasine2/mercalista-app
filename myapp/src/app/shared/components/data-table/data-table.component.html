@@ -1,0 +1,21 @@
+ <!-- search -->
+ <div class="card-body">
+  <div class="row">
+    <div class="col-md-8">
+      <input type="text" class="form-control" (keyup)='filterDatatable($event)'>
+    </div>
+  </div>
+</div>
+<!-- search -->
+<ngx-datatable
+  class="material"
+  [limit]="8"
+  [rows]="rows"
+  [rowHeight]="50"
+  [columns]="columns"
+  [columnMode]="'force'"
+  [sortType]="'multi'"
+  [headerHeight]="50"
+  [footerHeight]="50">
+</ngx-datatable>
+<!-- </div> -->

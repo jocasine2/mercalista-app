@@ -8,14 +8,14 @@ services:
     command: ["/usr/local/bin/ionic", "serve", "--no-open", "--external"]
     volumes:
       - .:/app
-  postgres:
-    container_name: ${APP_NAME}-db
-    image: postgres:13-alpine
-    command: ["postgres", "-c", "fsync=false", "-c", "full_page_writes=off"]
-    environment:
-      POSTGRES_PASSWORD: password
-    volumes:
-      - ./tmp/db:/var/lib/postgresql/data
-      - .:/app
-    ports:
-      - "5433:5432"
+  # postgres:
+  #   container_name: ${APP_NAME}-db
+  #   image: postgres:13-alpine
+  #   command: ["postgres", "-c", "fsync=false", "-c", "full_page_writes=off"]
+  #   environment:
+  #     POSTGRES_PASSWORD: password
+  #   volumes:
+  #     - ./tmp/db:/var/lib/postgresql/data
+  #     - .:/app
+  #   ports:
+  #     - "5433:5432"
