@@ -48,27 +48,29 @@ export class DataTableComponent implements OnInit {
   }
 
   getColumn(){
+    let cols = []
     for (const col of this.columns) {
-      console.log(col.name)
+      cols.push(col.name)
     }
+
+    return cols
   }
 
   filterDatatable(event){
-
     // get the value of the key pressed and make it lowercase
     let val = event.target.value.toLowerCase();
-this.getColumn()
+    
     if(!val){
       this.getList()
     }else{
       // get the amount of columns in the table
       let colsAmt = this.columns.length;
       // get the key names of each column in the dataset
-      console.log(Object.keys(this.rows[0]));
+      //console.log(Object.keys(this.rows[0]));
 
 
-      console.log((this.columns));
-      let keys = Object.keys(this.rows[0]);
+      //console.log((this.columns));
+      let keys = this.getColumn();
       // assign filtered matches to the active datatable
 
       this.filteredData = this.rows.filter(function(item){
@@ -82,7 +84,7 @@ this.getColumn()
         }
       });
       // whenever the filter changes, always go back to the first page
-// console.log(this.data)
+      // console.log(this.data)
       this.rows = this.filteredData;
     }
 

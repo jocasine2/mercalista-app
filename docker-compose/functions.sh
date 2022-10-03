@@ -53,6 +53,8 @@ function migrate(){
 }
 
 function permissions_update(){
+    # sudo groupadd docker
+    # sudo usermod -aG docker ${USER}
     sudo chown -R $USER:$USER .
 }
 
