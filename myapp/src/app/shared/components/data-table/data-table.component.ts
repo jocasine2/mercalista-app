@@ -30,7 +30,7 @@ export class DataTableComponent implements OnInit {
       { name: 'Genre' }
     ];
 
-    this.getList()
+    this.rows = this.getList()
 
   }
 
@@ -38,32 +38,40 @@ export class DataTableComponent implements OnInit {
     this.http.get<Data>('../../../assets/movies.json')
       .subscribe((res) => {
         this.rows = res.movies;
+        this.data = this.rows;
+        this.filteredData = this.rows;
       });
   }
 
   ngOnInit() {
- // populate datatable rows
- this.data = this.rows;
- // copy over dataset to empty object
- this.filteredData = this.rows;
+
+  }
+
+  getColumn(){
+    for (const col of this.columns) {
+      console.log(col.name)
+    }
   }
 
   filterDatatable(event){
 
     // get the value of the key pressed and make it lowercase
     let val = event.target.value.toLowerCase();
-
+this.getColumn()
     if(!val){
       this.getList()
-    }else if(this.rows.length>0){
+    }else{
       // get the amount of columns in the table
       let colsAmt = this.columns.length;
       // get the key names of each column in the dataset
-      console.log(val);
+      console.log(Object.keys(this.rows[0]));
+
+
+      console.log((this.columns));
       let keys = Object.keys(this.rows[0]);
       // assign filtered matches to the active datatable
 
-      this.data = this.rows.filter(function(item){
+      this.filteredData = this.rows.filter(function(item){
         // iterate through each row's column data
         for (let i=0; i<colsAmt; i++){
           // check for a match
@@ -74,7 +82,8 @@ export class DataTableComponent implements OnInit {
         }
       });
       // whenever the filter changes, always go back to the first page
-      this.rows = this.data;
+// console.log(this.data)
+      this.rows = this.filteredData;
     }
 
   }
