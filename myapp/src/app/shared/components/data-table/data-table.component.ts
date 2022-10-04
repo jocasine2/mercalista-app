@@ -22,7 +22,6 @@ export class DataTableComponent implements OnInit {
 
   @ViewChild('search', { static: false }) search: any;
 
-
   constructor(private http: HttpClient) {
     this.columns = [
       { name: 'Name', meta_name:'name' },
