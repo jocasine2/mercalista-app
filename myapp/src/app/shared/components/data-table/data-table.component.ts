@@ -15,7 +15,7 @@ export interface Data {
 })
 
 export class DataTableComponent implements OnInit {
-  public data: Data;
+  public data: any;
   public columns: any;
   public rows: any;
   public filteredData: any;
@@ -25,9 +25,9 @@ export class DataTableComponent implements OnInit {
 
   constructor(private http: HttpClient) {
     this.columns = [
-      { name: 'Name' },
-      { name: 'Company' },
-      { name: 'Genre' }
+      { name: 'Name', meta_name:'name' },
+      { name: 'Company', meta_name:'company'  },
+      { name: 'Genre', meta_name:'genre'  }
     ];
 
     this.rows = this.getList()
@@ -39,7 +39,6 @@ export class DataTableComponent implements OnInit {
       .subscribe((res) => {
         this.rows = res.movies;
         this.data = this.rows;
-        this.filteredData = this.rows;
       });
   }
 
@@ -48,30 +47,35 @@ export class DataTableComponent implements OnInit {
   }
 
   getColumn(){
+    let cols = []
+
     for (const col of this.columns) {
-      console.log(col.name)
+      cols.push(col.meta_name)
     }
+
+    return cols
   }
 
   filterDatatable(event){
 
     // get the value of the key pressed and make it lowercase
     let val = event.target.value.toLowerCase();
-this.getColumn()
+
     if(!val){
       this.getList()
     }else{
       // get the amount of columns in the table
-      let colsAmt = this.columns.length;
+      let colsAmt = this.getColumn().length;
       // get the key names of each column in the dataset
-      console.log(Object.keys(this.rows[0]));
+      // console.log(Object.keys(this.rows[0]));
 
 
-      console.log((this.columns));
-      let keys = Object.keys(this.rows[0]);
+      let keys = this.getColumn();
+
       // assign filtered matches to the active datatable
+      console.log(this.rows);
 
-      this.filteredData = this.rows.filter(function(item){
+      this.filteredData = this.data.filter(function(item){
         // iterate through each row's column data
         for (let i=0; i<colsAmt; i++){
           // check for a match
@@ -81,8 +85,8 @@ this.getColumn()
           }
         }
       });
+
       // whenever the filter changes, always go back to the first page
-// console.log(this.data)
       this.rows = this.filteredData;
     }
 
