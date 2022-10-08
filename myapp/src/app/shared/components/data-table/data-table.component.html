@@ -1,11 +1,7 @@
  <!-- search -->
- <div class="card-body">
-  <div class="mt-1 mb-3">
-      <input type="text" class="form-control" (keyup)='filterDatatable($event)'>
-  </div>
-  <div class="input-group mb-3"> <fa-icon [icon]="'home'" class="mr-4 cinza" ></fa-icon>
-    <span class="input-group-text" id="basic-addon1"></span>
-    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1"><fa-icon [icon]="'search'" class="cinza" ></fa-icon></span>
+    <input type="text" class="form-control" (keyup)='filterDatatable($event)'>
   </div>
   
 <!-- search -->
@@ -21,5 +17,5 @@
   [footerHeight]="50">
 </ngx-datatable>
 
-</div>
+
 <!-- </div> -->
