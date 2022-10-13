@@ -6,8 +6,6 @@ import { HomePageRoutingModule } from './home-routing.module';
 import { HomePage } from './home.page';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable'; /* datatables */
 import { DataTableComponent } from '../../shared/components/data-table/data-table.component'
-
-
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
