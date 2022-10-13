@@ -1,11 +1,15 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { HomePageRoutingModule } from './home-routing.module';
-import { HomePage } from './home.page';
 
-import { NgxDatatableModule } from '@swimlane/ngx-datatable'; /* datatables */
+import { IonicModule } from '@ionic/angular';
+
+import { ItemsPageRoutingModule } from './items-routing.module';
+
+import { ItemsPage } from './items.page';
+
+/* datatables */
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { DataTableComponent } from '../../shared/components/data-table/data-table.component'
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -15,12 +19,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule,
+    ItemsPageRoutingModule,
     NgxDatatableModule, /* datatables */
     FontAwesomeModule
   ],
-
-  declarations: [HomePage, DataTableComponent]
-  , schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  declarations: [ItemsPage, DataTableComponent]
 })
-export class HomePageModule {}
+export class ItemsPageModule {}

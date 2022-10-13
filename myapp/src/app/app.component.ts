@@ -9,7 +9,8 @@ export class AppComponent {
     { title: 'Home', url: '/home', icon: 'home' },
     { title: 'Lista da dispensa', url: '/lista-dispensa', icon: 'archive' },
     { title: 'Produtos', url: '/produtos', icon: 'cube' },
-    { title: 'Estabelecimentos', url: '/estabelecimentos', icon: 'heart' }
+    { title: 'Estabelecimentos', url: '/estabelecimentos', icon: 'heart' },
+    { title: 'Itens', url: '/items', icon: 'box' }
   ];
 
   constructor() {

@@ -26,6 +26,10 @@ const routes: Routes = [
   {
     path: 'estabelecimentos',
     loadChildren: () => import('./view/estabelecimentos/estabelecimentos.module').then( m => m.EstabelecimentosPageModule)
+  },
+  {
+    path: 'items',
+    loadChildren: () => import('./view/items/items.module').then( m => m.ItemsPageModule)
   }
 ];
 

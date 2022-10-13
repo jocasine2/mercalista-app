@@ -48,3 +48,4 @@ app ionic generate page shared/components/ListUsers
 app ionic generate page view/Login
 app ionic generate page view/Home
 app ionic generate page view/DetalheProduto
+app ionic generate page view/Items
