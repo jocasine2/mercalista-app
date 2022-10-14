@@ -21,7 +21,6 @@ export class ItemsPage implements OnInit {
   getItems() {
     this.itemService.getItems().subscribe((Response: any) => {
       this.items = Response;
-      console.log(this.items)
     });
 
   }

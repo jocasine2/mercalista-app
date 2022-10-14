@@ -12,7 +12,13 @@
     </div>
     <!-- /botão adicionar novo -->
     <!-- lista -->
-    <app-data-table></app-data-table>
+    <app-data-table
+      [url]="'http://localhost:3000/products'"
+      [columns]="[
+                  { name: 'Description', meta_name:'description' },
+                  { name: 'Price', meta_name:'price' }
+                 ]"
+    ></app-data-table>
     <!-- /lista -->
   </div>
 </ion-content>

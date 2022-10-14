@@ -1,11 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Item } from './../../../models/item';
+import { ViewEncapsulation, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ViewEncapsulation } from '@angular/core';
 
-//jcsnet: levar para modelos
-export interface Data {
-  movies: string;
-}
 
 @Component({
   selector: 'app-data-table',
@@ -16,35 +12,32 @@ export interface Data {
 
 export class DataTableComponent implements OnInit {
   public data: any;
-  public columns: any;
   public rows: any;
   public filteredData: any;
+
+  @Input() public url!: string;
+  @Input() public columns!: any;
+  @Input() public name!: any;
 
   @ViewChild('search', { static: false }) search: any;
 
   constructor(private http: HttpClient) {
-    this.columns = [
-      { name: 'Name', meta_name:'name' },
-      { name: 'Company', meta_name:'company'  },
-      { name: 'Genre', meta_name:'genre'  }
-    ];
-
-    this.rows = this.getList()
-
   }
 
+  //obtem as linhas da lista de um caminho informado na url do componente
   getList() {
-    this.http.get<Data>('../../../assets/movies.json')
-      .subscribe((res) => {
-        this.rows = res.movies;
+    this.http.get<Item[]>(this.url).subscribe((res) => {
+        this.rows = res;
         this.data = this.rows;
-        console.log('linhas:');
-        console.log(this.rows);
-      });
+    });
   }
 
   ngOnInit() {
+  }
 
+  //ngOnChanges captura as alterações feitas e não exibidas
+  ngOnChanges({ name }: any) {
+    this.rows = this.getList()
   }
 
   getColumn(){
