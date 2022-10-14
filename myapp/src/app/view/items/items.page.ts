@@ -17,7 +17,7 @@ export class ItemsPage implements OnInit {
     this.getItems();
   }
 
-  // Chama o serviço para obtém todos os carros
+  // Chama o serviço para obter todos os itens
   getItems() {
     this.itemService.getItems().subscribe((Response: any) => {
       this.items = Response;

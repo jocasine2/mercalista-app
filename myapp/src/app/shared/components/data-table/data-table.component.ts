@@ -70,11 +70,7 @@ export class DataTableComponent implements OnInit {
       // get the key names of each column in the dataset
       // console.log(Object.keys(this.rows[0]));
 
-
       let keys = this.getColumn();
-
-      // assign filtered matches to the active datatable
-      console.log(this.rows);
 
       this.filteredData = this.data.filter(function(item){
         // iterate through each row's column data
