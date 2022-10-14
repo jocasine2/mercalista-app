@@ -38,6 +38,8 @@ export class DataTableComponent implements OnInit {
       .subscribe((res) => {
         this.rows = res.movies;
         this.data = this.rows;
+        console.log('linhas:');
+        console.log(this.rows);
       });
   }
 
