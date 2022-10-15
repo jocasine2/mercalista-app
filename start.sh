@@ -3,3 +3,5 @@
 source docker-compose/functions.sh
 
 docker-compose up -d --build
+
+app npm install

@@ -44,7 +44,7 @@ export class DataTableComponent implements OnInit {
     let cols = []
 
     for (const col of this.columns) {
-      cols.push(col.meta_name)
+      cols.push(col.prop)
     }
 
     return cols
@@ -64,7 +64,7 @@ export class DataTableComponent implements OnInit {
       // console.log(Object.keys(this.rows[0]));
 
       let keys = this.getColumn();
-
+     
       this.filteredData = this.data.filter(function(item){
         // iterate through each row's column data
         for (let i=0; i<colsAmt; i++){
