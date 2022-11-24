@@ -34,7 +34,10 @@ app ionic generate page shared/components/NavBar
 app ionic generate page shared/components/Content
 app ionic generate page shared/components/Footer
 app ionic generate page shared/components/FormLogin
+app ionic generate page shared/components/FormRegister
 app ionic generate page shared/components/ListUsers
+
+app ionic generate service api/users/Login #Login
 
 #model
         app ng g interface models/User
@@ -42,6 +45,7 @@ app ionic generate page shared/components/ListUsers
         app ng g interface models/Establishment
         app ng g interface models/List
         app ng g interface models/ListIten
+        app ng g interface models/Login
 
 
 # views
@@ -49,3 +53,4 @@ app ionic generate page view/Login
 app ionic generate page view/Home
 app ionic generate page view/DetalheProduto
 app ionic generate page view/Items
+app ionic generate page view/Register

@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   redirectTo: 'folder/Inbox',
-  //   pathMatch: 'full'
-  // },
+  {
+    path: '',
+    redirectTo: '/home',
+    pathMatch: 'full'
+  },
   {
     path: 'login',
     loadChildren: () => import('./view/login/login.module').then( m => m.LoginPageModule)
@@ -30,6 +30,10 @@ const routes: Routes = [
   {
     path: 'items',
     loadChildren: () => import('./view/items/items.module').then( m => m.ItemsPageModule)
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./view/register/register.module').then( m => m.RegisterPageModule)
   }
 ];
 
