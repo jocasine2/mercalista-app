@@ -33,31 +33,33 @@ export class LoginService {
   }
 
   async validatetUser(){
-    
+
     const user = JSON.parse(localStorage.getItem('validate_user'));
-    
+
     const headers= new HttpHeaders()
     .set('content-type', 'application/json')
     .set('Access-Control-Allow-Origin', '*')
-    .set('uid', user.uid)
-    .set('access_token', user.access_token)
-    .set('client', user.client)
-    
+
+    if(user){
+      headers.set('uid', user.uid)
+      .set('access_token', user.access_token)
+      .set('client', user.client)
+    }
      //debug
     // console.log(localStorage.getItem('validate_user'));
-  
+
     this.httpClient.get<any>(this.baseUrl+'/auth/validate_token', { 'headers': headers }).subscribe(resp => {
       console.log('Usuário validado com sucesso!',resp);
-    }, err => {  
+    }, err => {
       console.log('falha ao realizar logout...', err);
       this.router.navigate(['/login']);
     });
   }
 
   logout(){
-    
+
     const user = JSON.parse(localStorage.getItem('validate_user'));
-    
+
     const headers= new HttpHeaders()
     .set('content-type', 'application/json')
     .set('Access-Control-Allow-Origin', '*')
@@ -69,11 +71,11 @@ export class LoginService {
       console.log('logout efetuado com sucesso', resp.HttpErrorResponse);
       this.router.navigate(['/login']);
     }, err => {
-      //debug  
+      //debug
       alert('falha ao realizar logout...'+err);
     });
 
-    
+
   }
 
   // Manipulação de erros
