@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import {  MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +7,9 @@ import { Component, ViewChild } from '@angular/core';
   styleUrls: ['./home.page.scss']
 })
 export class HomePage {
-  constructor() {}
+  constructor(public menuCtrl: MenuController) {}
+
+  ionViewWillEnter() {
+    this.menuCtrl.enable(true);
+  }
 }

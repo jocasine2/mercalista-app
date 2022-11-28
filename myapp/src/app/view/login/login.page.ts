@@ -26,6 +26,7 @@ export class LoginPage implements OnInit {
   ionViewWillEnter() {
     this.menuCtrl.enable(false);
   }
+
   // Chama o serviço para obter todos os itens
   getUser() {
     this.loginService.getUser(this.loginRequest).subscribe(resp => {

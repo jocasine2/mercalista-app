@@ -24,7 +24,7 @@ export class AppComponent {
     this.data = await this.LoginService.validatetUser();
   }
 
-  alerta(){
+  logout(){
     console.log(this.LoginService.logout());
   }
 }
