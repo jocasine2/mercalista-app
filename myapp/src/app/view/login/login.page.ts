@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/api/users/login.service';
 import { User } from 'src/app/models/user';
 import { Login } from 'src/app/models/login';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -9,10 +10,10 @@ import { Login } from 'src/app/models/login';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  public user: User;
+  public user: User = new User();
   public loginRequest: Login;
 
-  constructor(private loginService: LoginService) { 
+  constructor(private loginService: LoginService, private router: Router) { 
   }
 
   ngOnInit() {
@@ -21,13 +22,21 @@ export class LoginPage implements OnInit {
 
   // Chama o serviço para obter todos os itens
   getUser() {
-    //console.log(this.loginRequest)
     this.loginService.getUser(this.loginRequest).subscribe(resp => {
-      // Here, resp is of type HttpResponse<MyJsonData>.
-      // You can inspect its headers:
-      console.log(resp.headers);
-      // And access the body directly, which is typed as MyJsonData as requested.
-      console.log(resp.body.someField);
+      this.user.uid = resp.headers.get('uid');
+      this.user.access_token = resp.headers.get('access-token');
+      this.user.client = resp.headers.get('client');
+
+      //o ideal aqui seria criar ou atualizar validate_user
+      localStorage.removeItem('validate_user');
+      localStorage.setItem('validate_user', JSON.stringify(this.user));
+      
+      if(JSON.parse(localStorage.getItem('validate_user'))){
+        this.router.navigate(['/home']);
+      }
+    }, err => {  
+      console.log(err);
+      alert('falha ao realizar login...');
     });
   }
 

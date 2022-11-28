@@ -8,11 +8,19 @@
           <ion-note>joaquim@mercalista.com.br</ion-note>
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+            <ion-item (click)="[p.action]" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
               <fa-icon [icon]="p.icon" class="mr-4 cinza" ></fa-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
+
+          <ion-menu-toggle auto-hide="false">
+          <ion-item routerDirection="root" (click)="alerta()"  lines="none" detail="false" routerLinkActive="selected">
+            <fa-icon [icon]="'arrow-right-from-bracket'" class="mr-4 cinza" ></fa-icon>
+            <ion-label>Sair</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
         </ion-list>
       </ion-content>
     </ion-menu>

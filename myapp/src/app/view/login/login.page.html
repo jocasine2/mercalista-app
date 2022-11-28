@@ -3,13 +3,13 @@
     <h3 class="mb-5">Entrar</h3>
     <div class="form-group ">
       <label for="exampleInputEmail1">E-mail</label>
-      <input type="email" [(ngModel)]="loginRequest.user" value="jcsnetcc@gmail.com" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="email" [(ngModel)]="loginRequest.user" (keydown.enter)="getUser()" value="jcsnetcc@gmail.com" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
       <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
     </div>
 
     <div class="form-group">
       <label for="exampleInputEmail1">Senha</label>
-      <input type="password" [(ngModel)]="loginRequest.password" value="123456789" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+      <input type="password" [(ngModel)]="loginRequest.password" (keydown.enter)="getUser()" value="123456789" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
       <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
     </div>
 

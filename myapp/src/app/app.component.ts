@@ -1,10 +1,14 @@
 import { Component } from '@angular/core';
+import { LoginService } from './api/users/login.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
+  data = undefined;
+
   public appPages = [
     { title: 'Home', url: '/home', icon: 'home' },
     { title: 'Lista da dispensa', url: '/lista-dispensa', icon: 'archive' },
@@ -13,7 +17,14 @@ export class AppComponent {
     { title: 'Itens', url: '/items', icon: 'box' }
   ];
 
-  constructor() {
-    // console.log(this.appPages)
+  constructor(private LoginService: LoginService) {
+  }
+
+  async ngOnInit() {
+    this.data = await this.LoginService.validatetUser();
+  }
+
+  alerta(){
+    console.log(this.LoginService.logout());
   }
 }

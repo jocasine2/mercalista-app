@@ -5,18 +5,17 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { User } from 'src/app/models/user';
 import { Login } from 'src/app/models/login';
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  public user: User
-
-  url = 'https://whispering-headland-83074.herokuapp.com/auth/sign_in'; //produção
+  baseUrl = 'https://whispering-headland-83074.herokuapp.com'; //produção
 
   // injetando o HttpClient
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
    // Headers
   httpOptions = {
@@ -29,9 +28,52 @@ export class LoginService {
       'Content-Type': 'application/json'
     });
     let options = { headers: headers };
-    const body = {"email": "jcsnetcc@gmail.com", "password": "123456789", "confirm_success_url":"google.com"};
-    //console.log(loginRequest);
-    return this.httpClient.post(this.url, body, options)
+    const body = {"email": loginRequest.user, "password": loginRequest.password, "confirm_success_url":"google.com"};
+    return this.httpClient.post<any>(this.baseUrl+'/auth/sign_in', body, {observe: 'response'});
+  }
+
+  async validatetUser(){
+    
+    const user = JSON.parse(localStorage.getItem('validate_user'));
+    
+    const headers= new HttpHeaders()
+    .set('content-type', 'application/json')
+    .set('Access-Control-Allow-Origin', '*')
+    .set('uid', user.uid)
+    .set('access_token', user.access_token)
+    .set('client', user.client)
+    
+     //debug
+    // console.log(localStorage.getItem('validate_user'));
+  
+    this.httpClient.get<any>(this.baseUrl+'/auth/validate_token', { 'headers': headers }).subscribe(resp => {
+      console.log('Usuário validado com sucesso!',resp);
+    }, err => {  
+      console.log('falha ao realizar logout...', err);
+      this.router.navigate(['/login']);
+    });
+  }
+
+  logout(){
+    
+    const user = JSON.parse(localStorage.getItem('validate_user'));
+    
+    const headers= new HttpHeaders()
+    .set('content-type', 'application/json')
+    .set('Access-Control-Allow-Origin', '*')
+    .set('uid', user.uid)
+    .set('access_token', user.access_token)
+    .set('client', user.client);
+
+    this.httpClient.delete<any>(this.baseUrl+'/auth/sign_out', { 'headers': headers }).subscribe(resp => {
+      console.log('logout efetuado com sucesso', resp.HttpErrorResponse);
+      this.router.navigate(['/login']);
+    }, err => {
+      //debug  
+      alert('falha ao realizar logout...'+err);
+    });
+
+    
   }
 
   // Manipulação de erros
