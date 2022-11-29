@@ -3,7 +3,7 @@ import { LoginService } from 'src/app/api/users/login.service';
 import { User } from 'src/app/models/user';
 import { Login } from 'src/app/models/login';
 import { Router } from "@angular/router";
-import {  MenuController } from '@ionic/angular';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-login',
@@ -18,8 +18,6 @@ export class LoginPage implements OnInit {
   }
 
   ngOnInit() {
-
-    // this.menuCtrl.enable(false);
     this.loginRequest = new Login();
   }
 
@@ -50,6 +48,4 @@ export class LoginPage implements OnInit {
   goToRegister (){
     this.router.navigate(['/register']);
   }
-
-
 }

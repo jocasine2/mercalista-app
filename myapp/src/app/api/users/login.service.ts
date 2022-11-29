@@ -31,7 +31,7 @@ export class LoginService {
     let options = { headers: headers };
     if (registerRequest.password == registerRequest.password_confirmation){
       const body = {"email": registerRequest.email, "password": registerRequest.password, "confirm_success_url":"google.com"};
-      return this.httpClient.post<any>(this.baseUrl+'/auth/sign_in', body, {observe: 'response'});
+      return this.httpClient.post<any>(this.baseUrl+'/auth', body, {observe: 'response'});
     }
 
   }
