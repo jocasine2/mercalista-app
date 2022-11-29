@@ -5,6 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { User } from 'src/app/models/user';
 import { Login } from 'src/app/models/login';
+import { RegisterRequest } from './../../models/register-request';
 import { Router } from "@angular/router";
 
 @Injectable({
@@ -22,7 +23,20 @@ export class LoginService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
 
-  // Obtem todos os estabelecimentos
+  // Realizar login
+  registerUser(registerRequest: RegisterRequest): Observable<any> {
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+    let options = { headers: headers };
+    if (registerRequest.password == registerRequest.password_confirmation){
+      const body = {"email": registerRequest.email, "password": registerRequest.password, "confirm_success_url":"google.com"};
+      return this.httpClient.post<any>(this.baseUrl+'/auth/sign_in', body, {observe: 'response'});
+    }
+
+  }
+
+  // Realizar login
   getUser(loginRequest: Login): Observable<any> {
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'

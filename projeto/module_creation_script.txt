@@ -46,7 +46,8 @@ app ionic generate service api/users/Login #Login
         app ng g interface models/List
         app ng g interface models/ListIten
         app ng g interface models/Login
-
+        app ng g interface models/LoginRequest
+        app ng g class models/RegisterRequest
 
 # views
 app ionic generate page view/Login
