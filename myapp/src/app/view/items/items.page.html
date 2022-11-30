@@ -11,12 +11,12 @@
   <div class="ml-3 mr-3">
     <!-- botão adicionar novo -->
     <div class="mb-3 mt-3 text-center">
-      <button type="button" class="btn btn-primary btn-lg"><fa-icon [icon]="'file-pen'" class="cinza" ></fa-icon> Nova Lista</button>
+      <button type="button" class="btn btn-primary btn-lg"><fa-icon [icon]="'file-pen'" class="cinza" ></fa-icon> Novo Item</button>
     </div>
     <!-- /botão adicionar novo -->
     <!-- lista -->
     <app-data-table
-      [url]="'http://localhost:3000/products'"
+      [url]="'https://whispering-headland-83074.herokuapp.com/products'"
       [columns]="[
                   { name: 'Descrição', prop:'description' },
                   { name: 'Preço', prop:'price' }
