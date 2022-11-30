@@ -10,7 +10,7 @@ import { Item } from 'src/app/models/item';
 })
 export class ItemsService {
   baseUrl = 'https://whispering-headland-83074.herokuapp.com'; //teste
-  
+
   // injetando o HttpClient
   constructor(private httpClient: HttpClient) { }
 
@@ -26,16 +26,14 @@ export class ItemsService {
   }
 
   // Realizar login
-  createItem(registerRequest: RegisterRequest): Observable<any> {
+  createItem(/*itemRequest: ItemRequest*/)/*: Observable<any> */{
     let headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
     let options = { headers: headers };
-    if (registerRequest.password == registerRequest.password_confirmation){
-      const body = {"email": registerRequest.email, "password": registerRequest.password, "confirm_success_url":"google.com"};
-      return this.httpClient.post<any>(this.baseUrl+'/auth', body, {observe: 'response'});
-    }
+    // const body = {"email": registerRequest.email, "password": registerRequest.password, "confirm_success_url":"google.com"};
 
+    // return this.httpClient.post<any>(this.baseUrl+'/auth', body, {observe: 'response'});
   }
 
   // Manipulação de erros

@@ -40,14 +40,14 @@ app ionic generate page shared/components/ListUsers
 app ionic generate service api/users/Login #Login
 
 #model
-        app ng g interface models/User
-        app ng g interface models/Product
-        app ng g interface models/Establishment
-        app ng g interface models/List
-        app ng g interface models/ListIten
-        app ng g interface models/Login
-        app ng g interface models/LoginRequest
-        app ng g class models/RegisterRequest
+    app ng g interface models/User
+    app ng g interface models/Product
+    app ng g interface models/Establishment
+    app ng g interface models/List
+    app ng g interface models/ListIten
+    app ng g interface models/Login
+    app ng g interface models/LoginRequest
+    app ng g class models/RegisterRequest
 
 # views
 app ionic generate page view/Login
