@@ -34,6 +34,14 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./view/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'form-item',
+    loadChildren: () => import('./shared/components/form-item/form-item.module').then( m => m.FormItemPageModule)
+  },
+  {
+    path: 'create-item',
+    loadChildren: () => import('./view/create-item/create-item.module').then( m => m.CreateItemPageModule)
   }
 ];
 

@@ -9,7 +9,7 @@ import { Item } from 'src/app/models/item';
   providedIn: 'root'
 })
 export class ItemsService {
-  baseUrl = 'https://whispering-headland-83074.herokuapp.com'; //teste
+  baseUrl = 'http://localhost:3000'; //teste
 
   // injetando o HttpClient
   constructor(private httpClient: HttpClient) { }

@@ -13,7 +13,7 @@ import { Router } from "@angular/router";
 })
 export class LoginService {
 
-  baseUrl = 'https://whispering-headland-83074.herokuapp.com'; //produção
+  baseUrl = 'http://localhost:3000'; //produção
 
   // injetando o HttpClient
   constructor(private httpClient: HttpClient, private router: Router) { }

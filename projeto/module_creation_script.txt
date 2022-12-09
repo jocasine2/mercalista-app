@@ -36,7 +36,7 @@ app ionic generate page shared/components/Footer
 app ionic generate page shared/components/FormLogin
 app ionic generate page shared/components/FormRegister
 app ionic generate page shared/components/ListUsers
-
+app ionic generate page shared/components/FormItem
 app ionic generate service api/users/Login #Login
 
 #model
@@ -55,3 +55,4 @@ app ionic generate page view/Home
 app ionic generate page view/DetalheProduto
 app ionic generate page view/Items
 app ionic generate page view/Register
+app ionic generate page view/CreateItem
