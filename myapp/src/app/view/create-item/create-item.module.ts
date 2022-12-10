@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FormItemComponent } from '../../shared/components/form-item/form-item.component';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -15,6 +16,6 @@ import { CreateItemPage } from './create-item.page';
     IonicModule,
     CreateItemPageRoutingModule
   ],
-  declarations: [CreateItemPage]
+  declarations: [CreateItemPage, FormItemComponent]
 })
 export class CreateItemPageModule {}

@@ -26,18 +26,17 @@ app ionic generate service api/list/ListProducts # Produtos de uma lista (vincul
 app ionic generate service api/list/ListEstablishments # Estabelecimentos da lista
 app ionic generate service api/establishment/EstablishmentProducts # Produtos de um estabelecimento
 app ionic generate service api/establishment/ProductEstablishment # Estabelecimento que vendeu o produto
-
+app ionic generate service api/users/Login #Login
 
 #componentes compartilhados
-app ionic generate page shared/components/Alert
-app ionic generate page shared/components/NavBar
-app ionic generate page shared/components/Content
-app ionic generate page shared/components/Footer
-app ionic generate page shared/components/FormLogin
-app ionic generate page shared/components/FormRegister
-app ionic generate page shared/components/ListUsers
-app ionic generate page shared/components/FormItem
-app ionic generate service api/users/Login #Login
+app ionic generate component shared/components/Alert
+app ionic generate component shared/components/NavBar
+app ionic generate component shared/components/Content
+app ionic generate component shared/components/Footer
+app ionic generate component shared/components/FormLogin
+app ionic generate component shared/components/FormRegister
+app ionic generate component shared/components/ListUsers
+app ionic generate component shared/components/FormItem
 
 #model
     app ng g interface models/User
