@@ -1,9 +1,22 @@
+
 <ion-header>
   <ion-toolbar>
     <ion-title>Novo Item</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <app-form-item></app-form-item>
+  <div class="ml-3 mr-3">
+    <!-- botão adicionar novo -->
+    <div class="mb-3 mt-3 text-center">
+      <button type="button" class="btn btn-primary btn-lg"><fa-icon [icon]="'file-pen'" class="cinza" ></fa-icon> Novo Produto</button>
+    </div>
+    <!-- /botão adicionar novo -->
+    <!-- lista -->
+    <app-form-item></app-form-item>
+    <!-- /lista -->
+  </div>
 </ion-content>
